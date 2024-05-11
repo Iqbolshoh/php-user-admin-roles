@@ -7,16 +7,14 @@ $query = new Query();
 
 if (isset($_POST['submit'])) {
 
-    $user = $query->authenticate($_POST['username'], $_POST['password'], 'accounts');
+    $user = $query->authenticate($_POST['username'], $_POST['password'], 'users');
 
     if ($user) {
         $_SESSION['loggedin'] = true;
         $_SESSION['id'] = $user[0]['id'];
         $_SESSION['name'] = $user[0]['name'];
-        $_SESSION['number'] = $user[0]['number'];
         $_SESSION['email'] = $user[0]['email'];
         $_SESSION['username'] = $user[0]['username'];
-        $_SESSION['profile_image'] = $user[0]['profile_image'];
         $_SESSION['role'] = $user[0]['role'];
 
         $query->checkAuthentication();

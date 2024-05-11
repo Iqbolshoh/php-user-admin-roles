@@ -96,10 +96,9 @@ class Query
     }
 
     // registerUser(): To register a new user.
-    public function registerUser($name, $number, $email, $username, $password, $profile_image, $role)
+    public function registerUser($name, $email, $username, $password, $role)
     {
         $name = $this->validate($name);
-        $number = $this->validate($number);
         $email = $this->validate($email);
         $username = $this->validate($username);
 
@@ -107,52 +106,18 @@ class Query
 
         $data = array(
             'name' => $name,
-            'number' => $number,
             'email' => $email,
             'username' => $username,
             'password' => $password_hash,
-            'profile_image' => $profile_image,
             'role' => $role
         );
 
-        $user_id = $this->insert('accounts', $data);
+        $user_id = $this->insert('users', $data);
 
         if ($user_id) {
             return $user_id;
         }
         return false;
-    }
-
-    // saveImage(): To upload a picture
-    function saveImage($files, $path)
-    {
-        if (is_array($files['tmp_name'])) {
-            $uploaded_files = array();
-            foreach ($files['tmp_name'] as $index => $tmp_name) {
-                $file_name = $files['name'][$index];
-                $file_info = pathinfo($file_name);
-                $file_extension = $file_info['extension'];
-                $new_file_name = md5($tmp_name . date("Y-m-d_H-i-s") . $_SESSION['username']) . "." . $file_extension;
-                if (move_uploaded_file($tmp_name, $path . $new_file_name)) {
-                    $uploaded_files[] = $new_file_name;
-                }
-            }
-            return $uploaded_files;
-        } else {
-
-            $file_name = $files['name'];
-            $file_tmp = $files['tmp_name'];
-
-            $file_info = pathinfo($file_name);
-            $file_format = $file_info['extension'];
-
-            $new_file_name = md5($file_tmp . date("Y-m-d_H-i-s") . $_SESSION['username']) . "." . $file_format;
-
-            if (move_uploaded_file($file_tmp, $path . $new_file_name)) {
-                return $new_file_name;
-            }
-            return false;
-        }
     }
 
     // checkAuthentication(): Checking roles and directing them
@@ -161,9 +126,6 @@ class Query
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             if ($_SESSION['role'] === 'admin') {
                 header("Location: /admin/");
-                exit;
-            } elseif ($_SESSION['role'] === 'seller') {
-                header("Location: /seller/");
                 exit;
             } elseif ($_SESSION['role'] === 'user') {
                 header("Location: /");
@@ -179,15 +141,6 @@ class Query
     function checkAdminRole()
     {
         if ($_SESSION['role'] !== 'admin') {
-            $this->checkAuthentication();
-            exit;
-        }
-    }
-
-    // checkSellerRole(): For Seller access only
-    function checkSellerRole()
-    {
-        if ($_SESSION['role'] !== 'seller') {
             $this->checkAuthentication();
             exit;
         }
