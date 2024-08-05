@@ -23,6 +23,20 @@ This repository is a user management system built using PHP. It includes functio
 - `database.sql`: SQL file to set up the database.
 - `index.php`: Main homepage.
 
+## Images
+
+### Login Page
+![Login](images/login.png)
+
+### Admin Dashboard
+![Admin](images/admin.png)
+
+### User Dashboard
+![User](images/user.png)
+
+### Blocked Page
+![Blocked Page](images/blocked_page.png)
+
 ## Database Schema
 
 The database contains a table named `accounts` with the following structure:
@@ -119,7 +133,6 @@ The `config.php` file contains the `Query` class which handles all database oper
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
-
 
 ## Contact
 
