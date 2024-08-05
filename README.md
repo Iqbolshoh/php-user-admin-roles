@@ -12,6 +12,9 @@ This repository is a user management system built using PHP. It includes functio
 - `images/`: Contains images used in the application.
   - `favicon.ico`: Favicon for the site.
   - `no_image.png`: Default profile image.
+  - `login.png`: Image used in the login page.
+  - `admin.png`: Image used in the admin dashboard.
+  - `blocked_page.png`: Image used in the blocked page.
 - `login/`: Contains `index.php` for user login.
 - `logout/`: Contains `index.php` for user logout.
 - `signup/`: Contains `index.php` for user registration.
@@ -19,6 +22,20 @@ This repository is a user management system built using PHP. It includes functio
 - `config.php`: Configuration file containing the `Query` class for database operations.
 - `database.sql`: SQL file to set up the database.
 - `index.php`: Main homepage.
+
+## Images
+
+### Login Page
+![Login](images/login.png)
+
+### Admin Dashboard
+![Admin](images/admin.png)
+
+### User Dashboard
+![User](images/user.png)
+
+### Blocked Page
+![Blocked Page](images/blocked_page.png)
 
 ## Database Schema
 
@@ -116,3 +133,12 @@ The `config.php` file contains the `Query` class which handles all database oper
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
+
+## Contact
+
+Feel free to reach out or connect through the following platforms:
+
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/iqbolshoh_777)
+[![Thread](https://img.shields.io/badge/Thread-%2317B7B7.svg?style=for-the-badge&logo=thread&logoColor=white)](https://www.threads.net/Iqbolshoh_777)
+[![Telegram](https://img.shields.io/badge/Telegram-%0088CC.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Iqbolshoh_777)
+[![X](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Iqbolshoh_777)
