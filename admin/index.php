@@ -11,7 +11,7 @@ $query->checkAdminRole(); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="../images/favicon.ico">  
+    <link rel="icon" href="../images/favicon.ico">
 </head>
 
 <body>
