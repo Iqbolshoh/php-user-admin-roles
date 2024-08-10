@@ -82,29 +82,49 @@ The `config.php` file contains the `Query` class which handles all database oper
 - **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
 - **Role-Based Access**: Different pages and functionalities accessible based on user roles.
 
-## Technologies Used
-
 - PHP ![PHP Icon](https://img.icons8.com/color/48/000000/php.png)
 - MySQL ![MySQL Icon](https://img.icons8.com/color/48/000000/mysql-logo.png)
-- HTML ![HTML Icon](https://img.icons8.com/color/48/000000/html-5.png)
-- CSS ![CSS Icon](https://img.icons8.com/color/48/000000/css3.png)
-- JavaScript ![JavaScript Icon](https://img.icons8.com/color/48/000000/javascript.png)
+## Technologies Used
+
+<div style="display: flex; flex-wrap: wrap; gap: 5px;">
+    <img src="https://img.shields.io/badge/HTML-%23F06529.svg?style=for-the-badge&logo=html5&logoColor=white"
+        alt="HTML">
+    <img src="https://img.shields.io/badge/CSS-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS">
+    <img src="https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"
+        alt="JavaScript">
+     <img src="https://img.shields.io/badge/PHP-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+   <img src="https://img.shields.io/badge/MySQL-%234479A1.svg?style=for-the-badge&logo=mysql&logoColor=white"
+        alt="MySQL">
+</div>
+
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request.
+Contributions are welcome! If you have suggestions or want to enhance the project, feel free to fork the repository and submit a pull request.
+
 
 ## Connect with Me
 
-I love connecting with new people and exploring new opportunities. Feel free to reach out to me through any of the
-platforms below:
+I love connecting with new people and exploring new opportunities. Feel free to reach out to me through any of the platforms below:
 
 <table>
     <tr>
         <td>
+            <a href="https://github.com/iqbolshoh">
+                <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg"
+                    height="48" width="48" alt="GitHub" />
+            </a>
+        </td>
+        <td>
             <a href="https://t.me/iqbolshoh_777">
                 <img src="https://github.com/gayanvoice/github-active-users-monitor/blob/master/public/images/icons/telegram.svg"
                     height="48" width="48" alt="Telegram" />
+            </a>
+        </td>
+        <td>
+            <a href="https://www.linkedin.com/in/iiqbolshoh/">
+                <img src="https://github.com/gayanvoice/github-active-users-monitor/blob/master/public/images/icons/linkedin.svg"
+                    height="48" width="48" alt="LinkedIn" />
             </a>
         </td>
         <td>
@@ -122,12 +142,6 @@ platforms below:
             <a href="https://x.com/iqbolshoh_777">
                 <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" height="48"
                     width="48" alt="Twitter" />
-            </a>
-        </td>
-        <td>
-            <a href="https://www.linkedin.com/in/iqbolshoh/">
-                <img src="https://github.com/gayanvoice/github-active-users-monitor/blob/master/public/images/icons/linkedin.svg"
-                    height="48" width="48" alt="LinkedIn" />
             </a>
         </td>
         <td>
