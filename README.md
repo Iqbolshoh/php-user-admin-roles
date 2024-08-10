@@ -2,10 +2,17 @@
 
 This repository is a user management system built using PHP. It includes functionalities for user registration, login, role management, and user blocking.
 
-## Preview pages
-
-### Login Page
 ![Login](images/login.png)
+
+## Features
+
+- **User Roles**: Admin, and User roles with specific access controls.
+- **User Authentication**: Secure login and registration with password hashing.
+- **User Blocking**: Blocked users are redirected to a specific page.
+- **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
+- **Role-Based Access**: Different pages and functionalities accessible based on user roles.
+
+## Preview pages
 
 ### Admin Dashboard
 ![Admin](images/admin.png)
@@ -15,15 +22,6 @@ This repository is a user management system built using PHP. It includes functio
 
 ### Blocked Page
 ![Blocked Page](images/blocked_page.png)
-
-
-## Features
-
-- **User Roles**: Admin, and User roles with specific access controls.
-- **User Authentication**: Secure login and registration with password hashing.
-- **User Blocking**: Blocked users are redirected to a specific page.
-- **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
-- **Role-Based Access**: Different pages and functionalities accessible based on user roles.
 
 ## Setting Up the Project
 
