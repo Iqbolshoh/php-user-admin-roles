@@ -2,28 +2,7 @@
 
 This repository is a user management system built using PHP. It includes functionalities for user registration, login, role management, and user blocking.
 
-## Directory Structure
-
-- `admin/`: Contains `index.php` which is the dashboard for admins.
-- `css/`: Contains CSS files for styling different pages.
-  - `style.css`: Main stylesheet.
-  - `login.css`: Stylesheet for the login page.
-  - `blocked_page.css`: Stylesheet for the blocked page.
-- `images/`: Contains images used in the application.
-  - `favicon.ico`: Favicon for the site.
-  - `no_image.png`: Default profile image.
-  - `login.png`: Image used in the login page.
-  - `admin.png`: Image used in the admin dashboard.
-  - `blocked_page.png`: Image used in the blocked page.
-- `login/`: Contains `index.php` for user login.
-- `logout/`: Contains `index.php` for user logout.
-- `signup/`: Contains `index.php` for user registration.
-- `blocked_page.php`: Page displayed for blocked users.
-- `config.php`: Configuration file containing the `Query` class for database operations.
-- `database.sql`: SQL file to set up the database.
-- `index.php`: Main homepage.
-
-## Images
+## Preview
 
 ### Login Page
 ![Login](images/login.png)
