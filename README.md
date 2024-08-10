@@ -82,8 +82,6 @@ The `config.php` file contains the `Query` class which handles all database oper
 - **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
 - **Role-Based Access**: Different pages and functionalities accessible based on user roles.
 
-- PHP ![PHP Icon](https://img.icons8.com/color/48/000000/php.png)
-- MySQL ![MySQL Icon](https://img.icons8.com/color/48/000000/mysql-logo.png)
 ## Technologies Used
 
 <div style="display: flex; flex-wrap: wrap; gap: 5px;">
