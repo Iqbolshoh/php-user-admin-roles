@@ -16,6 +16,15 @@ This repository is a user management system built using PHP. It includes functio
 ### Blocked Page
 ![Blocked Page](images/blocked_page.png)
 
+
+## Features
+
+- **User Roles**: Admin, and User roles with specific access controls.
+- **User Authentication**: Secure login and registration with password hashing.
+- **User Blocking**: Blocked users are redirected to a specific page.
+- **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
+- **Role-Based Access**: Different pages and functionalities accessible based on user roles.
+
 ## Usage
 
 ### Admin Panel
@@ -73,14 +82,6 @@ The `config.php` file contains the `Query` class which handles all database oper
        }
    }
    ```
-
-## Features
-
-- **User Roles**: Admin, and User roles with specific access controls.
-- **User Authentication**: Secure login and registration with password hashing.
-- **User Blocking**: Blocked users are redirected to a specific page.
-- **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
-- **Role-Based Access**: Different pages and functionalities accessible based on user roles.
 
 ## Technologies Used
 
