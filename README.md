@@ -16,25 +16,6 @@ This repository is a user management system built using PHP. It includes functio
 ### Blocked Page
 ![Blocked Page](images/blocked_page.png)
 
-## Database Schema
-
-The database contains a table named `accounts` with the following structure:
-
-```sql
-CREATE TABLE IF NOT EXISTS accounts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
-    number VARCHAR(20) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    role VARCHAR(20) NOT NULL DEFAULT 'user',
-    profile_image VARCHAR(255) DEFAULT 'no_image.png',
-    status ENUM('active', 'blocked') NOT NULL DEFAULT 'active',
-    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
 ## Usage
 
 ### Admin Panel
