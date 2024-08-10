@@ -2,7 +2,7 @@
 
 This repository is a user management system built using PHP. It includes functionalities for user registration, login, role management, and user blocking.
 
-## Preview
+## Preview pages
 
 ### Login Page
 ![Login](images/login.png)
