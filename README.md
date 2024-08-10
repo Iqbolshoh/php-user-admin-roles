@@ -25,32 +25,6 @@ This repository is a user management system built using PHP. It includes functio
 - **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
 - **Role-Based Access**: Different pages and functionalities accessible based on user roles.
 
-## Usage
-
-### Admin Panel
-
-The admin panel is accessible via `admin/index.php`. Only users with the role of 'admin' can access this page.
-
-### User Registration
-
-Users can register via `signup/index.php`. They can register either as a regular user or an admin.
-
-### User Login
-
-Users can log in via `login/index.php`.
-
-### User Logout
-
-Users can log out via `logout/index.php`.
-
-### Blocked Users
-
-Blocked users are redirected to `blocked_page.php`.
-
-### Configuration
-
-The `config.php` file contains the `Query` class which handles all database operations.
-
 ## Setting Up the Project
 
 1. Clone the repository:
