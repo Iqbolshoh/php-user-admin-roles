@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     .then(data => {
                         const messageElement = document.getElementById('email-message');
                         if (data.exists) {
-                            messageElement.textContent = 'Bunday email mavjud!';
+                            messageElement.textContent = 'This an email exists!';
                             isEmailAvailable = false;
                         } else {
                             messageElement.textContent = '';
@@ -165,13 +165,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             const messageElement = document.getElementById('email-message');
 
             if (!validateEmailFormat(email)) {
-                messageElement.textContent = 'Email formati noto‘g‘ri!';
+                messageElement.textContent = 'Email format is incorrect!';
                 event.preventDefault();
                 return;
             }
 
             if (isEmailAvailable === false) {
-                messageElement.textContent = 'Bunday email mavjud!';
+                messageElement.textContent = 'This an email exists!';
                 event.preventDefault();
             }
         });
@@ -191,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     .then(data => {
                         const messageElement = document.getElementById('username-message');
                         if (data.exists) {
-                            messageElement.textContent = 'Bunday username mavjud!';
+                            messageElement.textContent = 'This a username exists!';
                             isUsernameAvailable = false;
                         } else {
                             messageElement.textContent = '';
