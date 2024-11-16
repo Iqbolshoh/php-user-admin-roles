@@ -1,55 +1,42 @@
-CREATE DATABASE IF NOT EXISTS Roles;
+CREATE DATABASE IF NOT EXISTS roles;
 
-USE Roles;
+USE roles;
 
-CREATE TABLE IF NOT EXISTS accounts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
-    number VARCHAR(20) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    username VARCHAR(255) NOT NULL UNIQUE,
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    username VARCHAR(30) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    role VARCHAR(20) NOT NULL DEFAULT 'user',
-    profile_image VARCHAR(255) DEFAULT 'no_image.png',
-    status ENUM('active', 'blocked') NOT NULL DEFAULT 'active',
-    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    role ENUM('admin', 'user') NOT NULL DEFAULT 'user',
+    profile_picture VARCHAR(255) DEFAULT 'default.png',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO
-    accounts (
-        name,
-        number,
+    users (
+        first_name,
+        last_name,
         email,
         username,
         password,
-        role,
-        status
+        role
     )
 VALUES
     (
         'Iqbolshoh',
-        '997799333',
-        'Iqbolshoh@gmail.com',
-        'Iqbolshoh',
-        'ed84bce861e67710a76393623d36b5ca6b9bcaaf658f57232be80c85af0ee52e',
-        'admin',
-        'active'
+        'Ilhomjonov',
+        'iilhomjonov777@gmail.com',
+        'iqbolshoh',
+        '65c2a32982abe41b1e6ff888d351ee6b7ade33affd4a595667ea7db910aecaa8',
+        'admin'
     ),
     (
         'user',
-        '993399777',
+        'user',
         'user@gmail.com',
         'user',
-        'ed84bce861e67710a76393623d36b5ca6b9bcaaf658f57232be80c85af0ee52e',
-        'user',
-        'active'
-    ),
-    (
-        'blocked user',
-        '9933997177',
-        'bloked@gmail.com',
-        'blocked',
-        'ed84bce861e67710a76393623d36b5ca6b9bcaaf658f57232be80c85af0ee52e',
-        'user',
-        'blocked'
-    );
+        '65c2a32982abe41b1e6ff888d351ee6b7ade33affd4a595667ea7db910aecaa8',
+        'user'
+    )
