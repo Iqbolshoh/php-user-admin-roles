@@ -1,27 +1,23 @@
 # PHP User Admin Roles
 
-This repository is a user management system built using PHP. It includes functionalities for user registration, login, role management, and user blocking.
+This repository is a user management system built using PHP. It includes functionalities for user registration, login, role management.
 
-![Login](images/login.png)
+![Login](src/images/login.png)
 
 ## Features
 
 - **User Roles**: Admin, and User roles with specific access controls.
 - **User Authentication**: Secure login and registration with password hashing.
-- **User Blocking**: Blocked users are redirected to a specific page.
 - **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
 - **Role-Based Access**: Different pages and functionalities accessible based on user roles.
 
 ## Preview pages
 
 ### Admin Dashboard
-![Admin](images/admin.png)
+![Admin](src/images/admin.png)
 
 ### User Dashboard
-![User](images/user.png)
-
-### Blocked Page
-![Blocked Page](images/blocked_page.png)
+![User](src/images/user.png)
 
 ## Setting Up the Project
 
