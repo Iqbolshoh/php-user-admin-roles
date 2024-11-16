@@ -34,7 +34,7 @@ This repository is a user management system built using PHP. It includes functio
 
 3. Configure the database connection in `config.php`:
    ```php
-   // Example configuration
+   
    private $conn;
 
    public function __construct()
@@ -42,7 +42,7 @@ This repository is a user management system built using PHP. It includes functio
        $servername = "localhost";
        $username = "root";
        $password = "";
-       $dbname = "Roles";
+       $dbname = "roles";
        $this->conn = new mysqli($servername, $username, $password, $dbname);
 
        if ($this->conn->connect_error) {
