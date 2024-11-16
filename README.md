@@ -8,7 +8,7 @@ This repository is a user management system built using PHP. It includes functio
 
 - **User Roles**: Admin, and User roles with specific access controls.
 - **User Authentication**: Secure login and registration with password hashing.
-- **File Uploads**: Users can upload profile images. All images, except `no_image.png`, are securely encrypted before storage.
+- **File Uploads**: Users can upload profile images. All images, except `default.png`, are securely encrypted before storage.
 - **Role-Based Access**: Different pages and functionalities accessible based on user roles.
 
 ## Preview pages
