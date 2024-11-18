@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
 
         <form method="post" action="">
             <div class="form-group">
-                <label for="username">Username or Email</label>
+                <label for="username">Username</label>
                 <input type="text" id="username" name="username" required maxlength="30">
             </div>
             <div class="form-group">
