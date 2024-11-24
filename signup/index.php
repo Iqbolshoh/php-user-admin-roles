@@ -20,10 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $query->validate($_POST['username']);
     $password = $query->hashPassword($_POST['password']);
 
-    $email_check = $query->select('users', 'email', 'email = ?', [$email], 's');
-    $username_check = $query->select('users', 'username', 'username = ?', [$username], 's');
-
-
     $data = [
         'first_name' => $first_name,
         'last_name' => $last_name,
