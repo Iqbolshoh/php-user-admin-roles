@@ -10,8 +10,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 include '../config.php';
 $query = new Database();
 
-$error_message = '';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $first_name = $query->validate($_POST['first_name']);
