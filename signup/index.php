@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $result = $query->insert('users', $data);
 
-    if (!isset($result)) {
+    if (!empty($result)) {
         $user_id = $query->select('users', 'id', 'username = ?', [$username], 's')[0]['id'];
 
         $_SESSION['loggedin'] = true;
