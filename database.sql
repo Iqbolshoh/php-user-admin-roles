@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Login: iqbolshoh
+-- Password: 1
 INSERT INTO
     users (
         first_name,

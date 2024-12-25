@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
-if ($_SESSION['role'] != 'user') {
+if (isset($_SESSION['role']) && $_SESSION['role'] != 'user') {
     header("Location: ./login/");
     exit;
 }

@@ -1,15 +1,16 @@
 <?php
-
 session_start();
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-    if ($_SESSION['role'] == 'admin') {
+
+    if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
         header("Location: ../admin/");
         exit;
     } else {
         header("Location: ../");
         exit;
     }
+
 }
 
 include '../config.php';
@@ -23,19 +24,23 @@ if (isset($_COOKIE['username']) && isset($_COOKIE['session_token'])) {
         session_start();
     }
 
-    $result = $query->select('users', 'id, role', 'username', $_COOKIE['username'])[0];
+    $result = $query->select('users', 'id, role', "username = ?", [$_COOKIE['username']], 's');
 
-    $_SESSION['loggedin'] = true;
-    $_SESSION['username'] = $_COOKIE['username'];
-    $_SESSION['user_id'] = $result['id'];
-    $_SESSION['role'] =  $result['role'];
+    if (isset($result)) {
+        $user = $result[0];
 
-    if ($_SESSION['role'] == 'admin') {
-        header("Location: ../admin/");
-        exit;
-    } else {
-        header("Location: ../");
-        exit;
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $_COOKIE['username'];
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['role'] = $user['role'];
+
+        if ($user['role'] == 'admin') {
+            header("Location: ../admin/");
+            exit;
+        } else {
+            header("Location: ../");
+            exit;
+        }
     }
 }
 
@@ -44,7 +49,7 @@ if (isset($_POST['submit'])) {
     $password = $query->hashPassword($_POST['password']);
     $result = $query->select('users', '*', "username = ? AND password = ?", [$username, $password], 'ss');
 
-    if (count($result) > 0) {
+    if (isset($result)) {
         $user = $result[0];
 
         $_SESSION['loggedin'] = true;
@@ -55,14 +60,14 @@ if (isset($_POST['submit'])) {
         setcookie('username', $username, time() + (86400 * 30), "/", "", true, true);
         setcookie('session_token', session_id(), time() + (86400 * 30), "/", "", true, true);
 
-
         $redirectPath = '../';
-        if ($result['role'] == 'admin') {
+        if ($user['role'] == 'admin') {
             $redirectPath = '../admin/';
         }
-?>
+        ?>
+
         <script>
-            window.onload = function() {
+            window.onload = function () {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -70,15 +75,15 @@ if (isset($_POST['submit'])) {
                     showConfirmButton: false,
                     timer: 1500
                 }).then(() => {
-                    window.location.href = '<?php echo $redirectPath; ?>';
+                    window.location.href = '<?= $redirectPath; ?>';
                 });
             };
         </script>
-    <?php
+        <?php
     } else {
-    ?>
+        ?>
         <script>
-            window.onload = function() {
+            window.onload = function () {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
@@ -88,7 +93,7 @@ if (isset($_POST['submit'])) {
                 });
             };
         </script>
-<?php
+        <?php
     }
 }
 ?>
@@ -137,7 +142,7 @@ if (isset($_POST['submit'])) {
 
     <script src="../src/js/sweetalert2.js"></script>
     <script>
-        document.getElementById('toggle-password').addEventListener('click', function() {
+        document.getElementById('toggle-password').addEventListener('click', function () {
             const passwordField = document.getElementById('password');
             const toggleIcon = this.querySelector('i');
 
