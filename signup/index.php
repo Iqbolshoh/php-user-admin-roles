@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         title: 'Oops...',
                         text: 'Registration failed. Please try again later.',
                     });
-                  </script>";
+            </script>";
     }
 }
 
@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     .then(data => {
                         const messageElement = document.getElementById('email-message');
                         if (data.exists) {
-                            messageElement.textContent = 'This an email exists!';
+                            messageElement.textContent = 'This email exists!';
                             isEmailAvailable = false;
                         } else {
                             messageElement.textContent = '';
@@ -182,28 +182,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     });
             }
         });
-
-        function validateEmailFormat(email) {
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            return emailPattern.test(email);
-        }
-
-        document.getElementById('submit').addEventListener('click', function (event) {
-            let email = document.getElementById('email').value;
-            const messageElement = document.getElementById('email-message');
-
-            if (!validateEmailFormat(email)) {
-                messageElement.textContent = 'Email format is incorrect!';
-                event.preventDefault();
-                return;
-            }
-
-            if (isEmailAvailable === false) {
-                messageElement.textContent = 'This an email exists!';
-                event.preventDefault();
-            }
-        });
-
 
         document.getElementById('username').addEventListener('input', function () {
             let username = this.value;
@@ -219,13 +197,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     .then(data => {
                         const messageElement = document.getElementById('username-message');
                         if (data.exists) {
-                            messageElement.textContent = 'This a username exists!';
+                            messageElement.textContent = 'This username exists!';
                             isUsernameAvailable = false;
                         } else {
                             messageElement.textContent = '';
                             isUsernameAvailable = true;
                         }
                     });
+            }
+        });
+
+        function validateEmailFormat(email) {
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return emailPattern.test(email);
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            let email = document.getElementById('email').value;
+            const messageElement = document.getElementById('email-message');
+
+            if (!validateEmailFormat(email)) {
+                messageElement.textContent = 'Email format is incorrect!';
+                event.preventDefault();
+                return;
+            }
+
+            if (isEmailAvailable === false) {
+                messageElement.textContent = 'This email exists!';
+                event.preventDefault();
+            }
+
+            if (isUsernameAvailable === false) {
+                const usernameMessageElement = document.getElementById('username-message');
+                usernameMessageElement.textContent = 'This username exists!';
+                event.preventDefault();
             }
         });
 
