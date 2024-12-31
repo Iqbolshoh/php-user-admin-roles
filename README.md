@@ -1,4 +1,4 @@
-# PHP User Admin Roles
+# PHP User Role Manager
 
 This repository is a user management system built using PHP. It includes functionalities for user registration, login, role management.
 
@@ -23,7 +23,7 @@ This repository is a user management system built using PHP. It includes functio
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Iqbolshoh/php-user-admin-roles.git
+   git clone https://github.com/Iqbolshoh/php-user-role-manager.git
    cd php-user-admin-roles
    ```
 
