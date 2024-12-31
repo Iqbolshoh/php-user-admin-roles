@@ -47,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $first_name = $query->validate($_POST['first_name']);
     $last_name = $query->validate($_POST['last_name']);
-    $email = $query->validate($_POST['email']);
-    $username = $query->validate($_POST['username']);
+    $email = $query->validate(strtolower($_POST['email']));
+    $username = $query->validate(strtolower($_POST['username']));
     $password = $query->hashPassword($_POST['password']);
 
     $data = [
