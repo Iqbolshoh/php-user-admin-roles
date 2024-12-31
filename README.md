@@ -24,7 +24,7 @@ This repository is a user management system built using PHP. It includes functio
 1. Clone the repository:
    ```bash
    git clone https://github.com/Iqbolshoh/php-user-role-manager.git
-   cd php-user-admin-roles
+   cd php-user-role-manager
    ```
 
 2. Import the database:
