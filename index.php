@@ -70,7 +70,7 @@ $query = new Database();
 
     <div class="container">
         <?php echo "<h1>Hello, {$_SESSION['role']}!</h1>"; ?>
-        <a href="../logout/" class="logout">Logout</a>
+        <a href="./logout/" class="logout">Logout</a>
     </div>
 
 </body>

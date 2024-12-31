@@ -10,7 +10,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         header("Location: ../");
         exit;
     }
-
 }
 
 include '../config.php';
@@ -72,9 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         setcookie('username', $username, time() + (86400 * 30), "/", "", true, true);
         setcookie('session_token', session_id(), time() + (86400 * 30), "/", "", true, true);
-        ?>
+?>
         <script>
-            window.onload = function () {
+            window.onload = function() {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -87,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             };
         </script>
 
-        <?php
+<?php
     } else {
         echo "<script>
                     Swal.fire({
@@ -159,16 +158,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         let isEmailAvailable = false;
         let isUsernameAvailable = false;
 
-        document.getElementById('email').addEventListener('input', function () {
+        function validateUsernameFormat(username) {
+            const usernamePattern = /^[a-zA-Z0-9_]+$/;
+            return usernamePattern.test(username);
+        }
+
+        document.getElementById('email').addEventListener('input', function() {
             let email = this.value;
             if (email.length > 0) {
                 fetch('check_availability.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `email=${encodeURIComponent(email)}`
-                })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `email=${encodeURIComponent(email)}`
+                    })
                     .then(response => response.json())
                     .then(data => {
                         const messageElement = document.getElementById('email-message');
@@ -183,19 +187,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         });
 
-        document.getElementById('username').addEventListener('input', function () {
+        document.getElementById('username').addEventListener('input', function() {
             let username = this.value;
+            const messageElement = document.getElementById('username-message');
+
+            if (!validateUsernameFormat(username)) {
+                messageElement.textContent = 'Username can only contain letters, numbers, and underscores!';
+                isUsernameAvailable = false;
+                return;
+            }
+
             if (username.length > 0) {
                 fetch('check_availability.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `username=${encodeURIComponent(username)}`
-                })
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `username=${encodeURIComponent(username)}`
+                    })
                     .then(response => response.json())
                     .then(data => {
-                        const messageElement = document.getElementById('username-message');
                         if (data.exists) {
                             messageElement.textContent = 'This username exists!';
                             isUsernameAvailable = false;
@@ -204,6 +215,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             isUsernameAvailable = true;
                         }
                     });
+            } else {
+                messageElement.textContent = '';
             }
         });
 
@@ -212,29 +225,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             return emailPattern.test(email);
         }
 
-        document.getElementById('signupForm').addEventListener('submit', function (event) {
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
             let email = document.getElementById('email').value;
-            const messageElement = document.getElementById('email-message');
+            const emailMessageElement = document.getElementById('email-message');
+            let username = document.getElementById('username').value;
+            const usernameMessageElement = document.getElementById('username-message');
 
             if (!validateEmailFormat(email)) {
-                messageElement.textContent = 'Email format is incorrect!';
+                emailMessageElement.textContent = 'Email format is incorrect!';
+                event.preventDefault();
+                return;
+            }
+
+            if (!validateUsernameFormat(username)) {
+                usernameMessageElement.textContent = 'Username can only contain letters, numbers, and underscores!';
                 event.preventDefault();
                 return;
             }
 
             if (isEmailAvailable === false) {
-                messageElement.textContent = 'This email exists!';
+                emailMessageElement.textContent = 'This email exists!';
                 event.preventDefault();
             }
 
             if (isUsernameAvailable === false) {
-                const usernameMessageElement = document.getElementById('username-message');
                 usernameMessageElement.textContent = 'This username exists!';
                 event.preventDefault();
             }
         });
 
-        document.getElementById('toggle-password').addEventListener('click', function () {
+        document.getElementById('toggle-password').addEventListener('click', function() {
             const passwordField = document.getElementById('password');
             const toggleIcon = this.querySelector('i');
 
